@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Todo-List</title>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/assets/styles.css" type="text/css"><link/>
+    <link rel="stylesheet" href="/assets/styles.css" type="text/css">
+    <link />
     <script src="/assets/todo-list.js"></script>
 </head>
+
 <body>
     <div id="todo-table">
         <form>
@@ -15,9 +18,10 @@
         </form>
         <ul>
             <% todos.forEach(function(todo){ %>
-                <li><%= todo.item %></li>
+            <li><%= todo.item %></li>
             <% }) %>
         </ul>
     </div>
-</body> 
-</html> 
+</body>
+
+</html>
