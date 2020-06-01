@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://newuser:711217@cluster0-nuv8a.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://newuser:711217@cluster0-uugo9.mongodb.net/test?retryWrites=true&w=majority');
 const todoSchema = new mongoose.Schema({
     item:String
 });
@@ -8,6 +8,7 @@ const Todo = mongoose.model('Todo',todoSchema);
 const get_all_item = (req,res) => {
     Todo.find({},function(err,data){
         if(err) throw err ;
+        console.log(data);
         res.render('todo' , {todos : data}) ;
     });
 };

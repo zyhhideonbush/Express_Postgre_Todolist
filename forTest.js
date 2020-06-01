@@ -22,23 +22,28 @@
 //     knex('todolist').insert({item:'go to school'});
 // });
 
-// knex.column('item').select().from('todolist') ;
+// var result = knex.column('item').select().from('todolist') ;
+
+// console.log("=======");
+
+// console.log(result);
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://newuser:711217@cluster0-nuv8a.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://newuser:711217@cluster0-uugo9.mongodb.net/test?retryWrites=true&w=majority');
 const todoSchema = new mongoose.Schema({
     item:String
 });
 const Todo = mongoose.model('Todo',todoSchema);
-// const itemone  = Todo({item:'go to school'}).save(function(err){
-//     if(err) throw err ;
-//     console.log('item saved');
-// });
+const itemone  = Todo({item:'go to school'}).save(function(err){
+    if(err) throw err ;
+    console.log('item saved');
+});
 
-function findAllItem(){
-    return Todo.find({},function(err,data){
-        if(err) throw err ;
-    });
-};
 
-var num = findAllItem();
-console.log(num);
+// function findAllItem(){
+//     return Todo.find({},function(err,data){
+//         if(err) throw err ;
+//     });
+// };
+
+// var num = findAllItem();
+// console.log(num);
