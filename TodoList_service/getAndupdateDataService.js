@@ -5,28 +5,36 @@ const todoSchema = new mongoose.Schema({
 });
 const Todos = mongoose.model('Todo',todoSchema);
 
-const get_all_item = () => {
+const getAllItems = () => {
     return Todos.find({},function(err,data){
                 if(err) throw err ;
                 return data ;
             });
     }
 
-const insert_item = (item) => {
+const insertOneItem = (item) => {
     Todos(item).save(function(err){
         if(err) throw err ;
     });
 };
 
-const delete_item = (item) => {
+const deleteOneItem = (item) => {
     Todos.find(item).remove(function(err){
         if(err) throw err ;
     });
 };
 
+const updateOneItem = (item) => {
+    Todos.update({item:item.item},{$set:{item:item.newValue}},function(err){
+        if(err) throw err ;
+    });
+};
+
+
 module.exports = {
-    get_all_item,
-    insert_item,
-    delete_item
+    getAllItems,
+    insertOneItem,
+    deleteOneItem,
+    updateOneItem
 };
     
